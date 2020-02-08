@@ -1,8 +1,16 @@
 console.log('hey')
-const bod = document.querySelector('body');
+const body = document.querySelector('body');
 const container = document.createElement('div');
 container.classList.add('container');
 const length = 8;
+const button = document.querySelector('button');
+
+
+button.addEventListener('click', (e) => {
+    alert('How many bricks wide should the square be?');
+});
+
+
 
 createGrid(length);
 
@@ -16,11 +24,19 @@ function createGrid(length) {
         
         for (let k = 0; k < length; k++) {
             const myDiv = document.createElement('div');
-            myDiv.classList.add('empty-box');
+            myDiv.classList.add('box', 'empty-box');
             myRow.appendChild(myDiv);
         }
         
         container.appendChild(myRow);
     }
-    bod.appendChild(container);
+    body.appendChild(container);
 }
+
+const blocks = document.querySelectorAll('.box');
+blocks.forEach((block) => {
+    block.addEventListener('mouseover', (e) => {
+        block.classList.toggle('filled-box');
+    });
+});
+
