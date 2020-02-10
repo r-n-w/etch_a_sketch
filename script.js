@@ -2,6 +2,7 @@ console.log('hey')
 const body = document.querySelector('body');
 const container = document.createElement('div');
 container.classList.add('container');
+body.appendChild(container);
 const initialSize = 8;
 const button = document.querySelector('button');
 
@@ -24,35 +25,24 @@ button.addEventListener('click', (e) => {
 });
 
 function clearGrid() {
-    const rows = document.querySelectorAll('.row');
+    const rows = document.querySelectorAll('.block');
     rows.forEach((row) => {
         container.removeChild(row);
     })
 }
 
 
-function createGrid(length) {
-
-    var blockPixelWidth = Math.floor(500/length);
-    
-    for (let i = 0; i < length; i++) {
+function createGrid(rowOfBlocks) {
+    container.style.cssText = `grid-template-columns: repeat(${rowOfBlocks}, 1fr);
+    grid-template-rows: repeat(${rowOfBlocks}, 1fr)`;
+    for (let i = 0; i < rowOfBlocks ** 2; i++) {
         
-        const myRow = document.createElement('div');
-        myRow.style.cssText = `height: ${blockPixelWidth}px`;
-        myRow.classList.add('row');
-        
-        for (let k = 0; k < length; k++) {
-            const myDiv = document.createElement('div');
-            myDiv.style.cssText = `width: ${blockPixelWidth}px; height: ${blockPixelWidth}px`;
-            myDiv.classList.add('box', 'empty-box');
-            myRow.appendChild(myDiv);
-        }
-        
-        container.appendChild(myRow);
+        const myBlock = document.createElement('div');
+        myBlock.classList.add('block');
+        container.appendChild(myBlock);
     }
-    body.appendChild(container);
 
-    const blocks = document.querySelectorAll('.box');
+    const blocks = document.querySelectorAll('.block');
     blocks.forEach((block) => {
         block.addEventListener('mouseover', (e) => {
             block.classList.toggle('filled-box');

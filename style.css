@@ -1,7 +1,5 @@
-.box {
-    display: inline-block;
-    position: relative;
-    vertical-align: middle;
+.block {
+    background-color: grey;
 
 }
 .empty-box{
@@ -14,8 +12,10 @@
     vertical-align: middle;
 }
 .container {
-    display: block;
+    display: grid;
+    grid: auto-flow;
     width: 500px;
+    height: 500px;
     margin: auto;
     border-radius: 20px;
     overflow: hidden;
