@@ -1,18 +1,14 @@
 .block {
-    background-color: grey;
-
+    background-color: rgb(243, 241, 241);
+    border: 1px solid gainsboro;
 }
-.empty-box{
-    background-color: grey;
-}
-.filled-box {
+.filled-block {
     background-color: black;
-}
-.row {
-    vertical-align: middle;
+    border: 1px solid black;
 }
 .container {
     display: grid;
+    border: 3px solid gainsboro;
     grid: auto-flow;
     width: 500px;
     height: 500px;
@@ -20,17 +16,29 @@
     border-radius: 20px;
     overflow: hidden;
 }
+
+#labels {
+    display: flex;
+    justify-content: center;
+}
 button {
-    margin: 20px auto;
-    background-color: #4CAF50; /* Green */
+    margin: 20px;
+    border-radius: 3px;
+    background-color: rgb(81, 168, 84); /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: block;
+    display: inline-block;
     font-size: 16px; 
+    box-shadow: grey 0px 0px 3px 0px;
 }
 button:hover {
-    background-color: red;
+    background-color: rgb(113, 180, 115);
+}   
+button:focus {
+    outline: 0;
+    box-shadow: grey 0 0 1px 0px;   
 }
+

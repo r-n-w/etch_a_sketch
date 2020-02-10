@@ -3,6 +3,7 @@ const body = document.querySelector('body');
 const container = document.createElement('div');
 container.classList.add('container');
 body.appendChild(container);
+
 const initialSize = 8;
 const button = document.querySelector('button');
 
@@ -35,8 +36,8 @@ function clearGrid() {
 function createGrid(rowOfBlocks) {
     container.style.cssText = `grid-template-columns: repeat(${rowOfBlocks}, 1fr);
     grid-template-rows: repeat(${rowOfBlocks}, 1fr)`;
+    
     for (let i = 0; i < rowOfBlocks ** 2; i++) {
-        
         const myBlock = document.createElement('div');
         myBlock.classList.add('block');
         container.appendChild(myBlock);
@@ -45,7 +46,7 @@ function createGrid(rowOfBlocks) {
     const blocks = document.querySelectorAll('.block');
     blocks.forEach((block) => {
         block.addEventListener('mouseover', (e) => {
-            block.classList.toggle('filled-box');
+            block.classList.add('filled-block');
         });
     });
 
